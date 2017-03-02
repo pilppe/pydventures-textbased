@@ -130,4 +130,3 @@ def available_actions(self):
     moves.append(toiminnot.KatsoVarusteluettelo())
 
     return moves
-            
