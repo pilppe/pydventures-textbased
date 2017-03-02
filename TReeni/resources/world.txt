@@ -1,0 +1,6 @@
+	Kultahuone	TyhjaKaytavaReitti	FatisagHuone	
+		TyhjaKaytavaReitti		
+		TyhjaKaytavaReitti		
+FatisagHuone	TyhjaKaytavaReitti	AloitusHuone	TyhjaKaytavaReitti	MoraLoytoHuone
+		Kultahuone		
+		TyhjaKaytavaReitti		

@@ -81,8 +81,15 @@ class MoraLoytoHuone(LoytoHuone):
         Se on mora! Nostat sen ylös.            
             """
             
-
-            
+class Kultahuone(LoytoHuone):
+    def __init__(self, x, y):
+        super().__init__(x, y, tavarat.kulta())
+        
+        def intro_teksti(self):
+            return """
+            Löysit huoneesta 5 kultaa!
+            Nostit sen ylös...
+            """
             
             
             
