@@ -30,13 +30,13 @@ class Ase(Tavarat):
         super().__init__(nimi, kuvaus, arvo)
 
     def __str__(self):
-        return "{}\n=====\n{}nArvo: {}\nVahinko: {}".format(self.nimi, self.kuvaus, self.arvo, self.vahinko)   
+        return "{}\n=====\n{}nArvo: {}\nVahinko: {}".format(self.nimi, self.kuvaus, self.arvo, self.vahinko)
 
 
 class kiminServaus(Ase):
     def __init__(self):
         super().__init__(nimi="Kimin servaus",
-                         kuvaus="Tuntuu vähän, mutta ei muuten tunnu missään."
+                         kuvaus="Tuntuu vähän, mutta ei muuten tunnu missään.",
                          arvo=0,
                          vahinko=5)
 

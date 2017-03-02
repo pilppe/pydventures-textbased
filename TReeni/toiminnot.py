@@ -1,5 +1,5 @@
 import pelaaja
-from TReeni.vastustajat import Vastustaja
+from vastustajat import Vastustaja
 
 
 class Toiminto():

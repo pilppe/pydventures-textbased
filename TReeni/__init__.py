@@ -1,4 +1,4 @@
-import 
+
 
 password = input("Please enter password: ")
 if password == "Muzolf":

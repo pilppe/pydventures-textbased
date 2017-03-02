@@ -1,11 +1,13 @@
 import maailma
 from pelaaja import Pelaaja
-from TReeni.toiminnot import Toiminto
+from toiminnot import Toiminto
+from tiilet import KarttaRuutu
 
 
 def play():
     maailma.load_tiles()
     pelaaja = Pelaaja()
+    KarttaRuutu = KarttaRuutu
     huone = maailma.tile_exists(pelaaja.location_x, pelaaja.location_y)
     print(huone.intro_teksti())
     while pelaaja.on_elossa() and not pelaaja.voitto:

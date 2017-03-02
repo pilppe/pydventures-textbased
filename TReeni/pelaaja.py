@@ -1,6 +1,8 @@
 import tavarat
 import random
 import maailma
+import vastustajat
+
 
 class Pelaaja():
     def __init__(self):
@@ -52,14 +54,14 @@ def attack(self, enemy):
 
     print("You use {} against {}!".format(paras_ase.nimi, vastustajat.nimi))
     vastustajat.elamapisteet -= paras_ase.vahinko
-    if not Vastustaja.on_elossa():
+    if not vastustajat.on_elossa():
         print("You killed {}!".format(vastustajat.nimi))
     else:
         print("{} elämäpisteet on {}.".format(vastustajat.nimi, vastustajat.elamapisteet))
 
 
 def do_action(self, toiminto, **kwargs):
-    toiminta_metodi = getattr(self, toiminta.metodi.__nimi__)
+    toiminta_metodi = getattr(self, toiminto.metodi.__nimi__)
     if toiminta_metodi:
         toiminta_metodi(**kwargs)
 

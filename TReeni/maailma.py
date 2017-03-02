@@ -4,7 +4,7 @@ starting_position = (0, 0)
 
 
 def load_tiles():
-    with open('resources/map.txt', 'r') as f:
+    with open('resources/world.txt', 'r') as f:
         rows = f.readlines()
     x_max = len(rows[0].split('\t'))  # Olettaa että kaikilla riveillä on saman verran tabeja
     for y in range(len(rows)):
@@ -14,7 +14,7 @@ def load_tiles():
             if tile_name == 'StartingRoom':
                 global starting_position
                 starting_position = (x, y)
-            _maailma[(x, y)] = None if tile_name == '' else getattr(__import__('tiles'), tile_name)(x, y)
+            _maailma[(x, y)] = None if tile_name == '' else getattr(__import__('tiilet'), tile_name)(x, y)
 
 
 def tile_exists(x, y):
