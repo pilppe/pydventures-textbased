@@ -1,5 +1,5 @@
 '''Tämä on se missä pelaaja kävelee, X-Y kordinaatteja käyttäen'''
-import tavarat, vastustajat
+import tavarat, vastustajat, toiminnot, maailma
 
 class KarttaRuutu:
     def __init__(self, x, y):
@@ -9,7 +9,7 @@ class KarttaRuutu:
 def intro_teksti(self):
     raise NotImplementedError()
 
-def muokkaa_pelaajaa(self, pelaaja
+def muokkaa_pelaajaa(self, pelaaja):
     raise NotImplementedError()
 
 '''Aloitushuone'''
@@ -31,7 +31,7 @@ class LoytoHuone(KarttaRuutu):
         super().__init__(x, y)
         
     def lisaa_loydot(self, pelaaja):
-        player.inventory.append(self.tavarat)
+        pelaaja.inventory.append(self.tavarat)
         
     def muokkaa_pelaajaa(self, pelaaja):
         self.lisaa_loydot(pelaaja)
@@ -45,6 +45,12 @@ class VastustajaHuone(KarttaRuutu):
         if self.vastustaja.on.elossa():
             itse_pelaaja.elamapisteet = itse_pelaaja.elamapisteet - self.vastustajat.vahinko
             print("Vastustaja tekee {} vahinkoa. Sinulla on {} elämäpisteitä jäljellä.".format(self.vastustajat.vahinko, itse_pelaaja.elamapisteet))
+
+    def available_actions(self):
+        if self.enemy.is_alive():
+            return [toiminnot.karkaa(tile=self), toiminnot.hyokkaa(vastustajat=self.vastustajat)]
+        else:
+            return self.adjacent_moves()
 
 class TyhjaKaytavaReitti(KarttaRuutu):
     def intro_teksti(self):
@@ -73,7 +79,7 @@ class FatisagHuone(VastustajaHuone):
             
 class MoraLoytoHuone(LoytoHuone):
     def __init__(self, x, y):
-        super().__init__(x, y, tavarat.mora())
+        super().__init__(x, y, tavarat.Mora())
         
     def intro_teksti(self):
         return """
@@ -83,7 +89,7 @@ class MoraLoytoHuone(LoytoHuone):
             
 class Kultahuone(LoytoHuone):
     def __init__(self, x, y):
-        super().__init__(x, y, tavarat.kulta())
+        super().__init__(x, y, tavarat.Kulta())
         
         def intro_teksti(self):
             return """
@@ -92,7 +98,23 @@ class Kultahuone(LoytoHuone):
             """
             
             
-            
+def adjacent_moves(self):
+    moves = []
+    if maailma.tile_exists(self.x + 1, self.y):
+        moves.append(toiminnot.MoveEast())
+    if maailma.tile_exists(self.x - 1, self.y):
+        moves.append(toiminnot.MoveWest())
+    if maailma.tile_exists(self.x, self.y - 1):
+        moves.append(toiminnot.MoveNorth())
+    if maailma.tile_exists(self.x, self.y + 1):
+        moves.append(toiminnot.MoveSouth())
+    return moves
+ 
+def available_actions(self):
+    moves = self.adjacent_moves()
+    moves.append(toiminnot.KatsoVarusteluettelo())
+ 
+    return moves            
             
             
             

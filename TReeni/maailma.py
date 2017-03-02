@@ -1,5 +1,5 @@
 '''Käy läpi maailma.txt tiedoston'''
-_world = {}
+_maailma = {}
 starting_position = (0, 0)
  
 def load_tiles():
@@ -13,7 +13,7 @@ def load_tiles():
             if tile_name == 'StartingRoom':
                 global starting_position
                 starting_position = (x, y)
-            _world[(x, y)] = None if tile_name == '' else getattr(__import__('tiles'), tile_name)(x, y)
+            _maailma[(x, y)] = None if tile_name == '' else getattr(__import__('tiles'), tile_name)(x, y)
             
 def tile_exists(x, y):
-    return _world.get((x, y))
+    return _maailma.get((x, y))
