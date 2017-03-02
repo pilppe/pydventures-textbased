@@ -24,5 +24,5 @@ class JesseJ(Vastustaja):
         
 class antti_Kaskimaki(Vastustaja):
     def __init__(self):
-        super().__init__(nimi="Antti Kaskimäki", elamapisteet=50, vahinko 20)
+        super().__init__(nimi="Antti Kaskimäki", elamapisteet=50, vahinko=20)
 

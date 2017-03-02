@@ -45,3 +45,55 @@ class VastustajaHuone(KarttaRuutu):
         if self.vastustaja.on.elossa():
             itse_pelaaja.elamapisteet = itse_pelaaja.elamapisteet - self.vastustajat.vahinko
             print("Vastustaja tekee {} vahinkoa. Sinulla on {} elämäpisteitä jäljellä.".format(self.vastustajat.vahinko, itse_pelaaja.elamapisteet))
+
+class TyhjaKaytavaReitti(KarttaRuutu):
+    def intro_teksti(self):
+        return """
+        Toinen kohta kaivosta... Sinun on pakko edetä.
+        """
+        
+    def muokkaa_pelaajaa(self, player):
+        #Huoneessa ei oo mitään tekemistä pelaajalle.. vielä
+        pass
+    
+class FatisagHuone(VastustajaHuone):
+    def __init__(self, x, y):
+        super().__init__(x, y, vastustajat.FatisagNiko())
+    
+    def intro_teksti(self):
+        if self.vastustaja.on.elossa():
+            return """
+            Jättimäinen Niko hyppää sinun päällesi edessäsi!
+            """
+            
+        else:
+            return """
+            Kuollut Niko makaa maassa ja homehtuu.
+            """
+            
+class MoraLoytoHuone(LoytoHuone):
+    def __init__(self, x, y):
+        super().__init__(x, y, tavarat.mora())
+        
+    def intro_teksti(self):
+        return """
+        Löydät jotain hienoa sivusta...
+        Se on mora! Nostat sen ylös.            
+            """
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
