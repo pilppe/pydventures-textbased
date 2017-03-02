@@ -2,6 +2,7 @@ import maailma
 from pelaaja import Pelaaja
 from TReeni.toiminnot import Toiminto
 
+
 def play():
     maailma.load_tiles()
     pelaaja = Pelaaja()
@@ -21,14 +22,19 @@ def play():
                 if action_input == Toiminto.pikanappain:
                     pelaaja.do_action(action, **action.kwargs)
                     break
-        
+
+
 class KaivosHuonePoistuminen(KarttaRuutu):
     def intro_text(self):
         return """
         Näet auringonvaloa kaukaalta... Se kasvaa kun lähenet sitä...
-        
+
         Pääsit ulos! Voitto on sinun!
         """
- 
+
     def muokkaa_pelaajaa(self, pelaaja):
         pelaaja.voitto = True
+
+
+if __name__ == "__main__":
+    play()
