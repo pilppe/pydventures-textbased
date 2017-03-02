@@ -35,15 +35,15 @@ def move_west(self):
 def attack(self, enemy):
     paras_ase = None
     max_vahinko = 0
-    for i in self.tavaraluettelo
+    for i in self.tavaraluettelo:
         if isinstance(i, tavaraluettelo.Ase):
-            if i.vahinko > max_vahinko
+            if i.vahinko > max_vahinko:
                 max_vahinko = i.vahinko
                 paras_ase = i
                 
     print("You use {} against {}!".format(paras_ase.nimi, vastustajat.nimi))
     vastustajat.elamapisteet -= paras_ase.vahinko
-    if not Vastustaja.on_elossa()
+    if not Vastustaja.on_elossa():
         print("You killed {}!".format(vastustajat.nimi))
     else:
         print("{} elämäpisteet on {}.".format(vastustajat.nimi, vastustajat.elamapisteet))
